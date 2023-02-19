@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 
 public class ColorUtils {   
     
-    public String apply(String colorString) {
+    public static String apply(String colorString) {
         String parseHexColorsString = "";
         for (int i = 0; i < colorString.length(); i++) {
             if (colorString.charAt(i) == '#') {
@@ -17,4 +17,6 @@ public class ColorUtils {
         }
         return ChatColor.translateAlternateColorCodes('&', parseHexColorsString);
     }
+
+
 }
