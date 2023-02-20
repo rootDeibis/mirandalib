@@ -10,14 +10,13 @@ public class PlaceholderFormat {
 
         for(int i = 0; i < message.length(); i++) {
 
-            if(i + 1 <= message.length()) {
-                if(message.charAt(i) == '%' && message.charAt(i + 1) == 's') {
-                    builder.append(params[currentParam]);
+            if(i + 1 <= message.length() && message.charAt(i) == '%' && message.charAt(i + 1) == 's') {
+                builder.append(params[currentParam]);
 
-                    currentParam += 2;
-                } else {
-                    builder.append(message.charAt(i));
-                }
+                currentParam++;
+                i++;
+            } else {
+                builder.append(message.charAt(i));
             }
         }
 
