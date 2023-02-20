@@ -1,37 +1,24 @@
 package me.rootdeibis.mirandalib.utils;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import org.bukkit.Bukkit;
 
 public class Logger {
 
-    private String PREFIX = "[MirandaLIB]";
 
-    public Logger() {
+
+
+    public static void info(String message, Object... params) {
+        info(PlaceholderFormat.parseParams(message, params));
     }
 
+    public static void info(List<String> messageList, Object... params) {
+        info(messageList.stream().map(str -> PlaceholderFormat.parseParams(str, params)).collect(Collectors.toList()));
+    }
 
     
 
-
-    public void info(String message) {
-        Bukkit.getConsoleSender().sendMessage(ColorUtils.apply(message));
-    }
-
-    public void info(List<String> messageList) {
-        info(String.join("\n", messageList));
-    }
-
-
-
-    public void setPrefix(String prefix) {
-        this.PREFIX = prefix;
-    }
-
-    public String getPrefix() {
-        return this.PREFIX;
-    }
 
 
     
