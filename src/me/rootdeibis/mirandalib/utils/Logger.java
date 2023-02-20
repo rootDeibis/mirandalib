@@ -12,6 +12,8 @@ public class Logger {
     }
 
 
+    
+
 
     public void info(String message) {
         Bukkit.getConsoleSender().sendMessage(ColorUtils.apply(message));
