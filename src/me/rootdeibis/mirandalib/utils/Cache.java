@@ -1,5 +1,6 @@
 package me.rootdeibis.mirandalib.utils;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -14,6 +15,10 @@ public class Cache<T> {
 
     public void add(T cache) {
         this.caches.add(cache);
+    }
+
+    public void addAll(Collection<T> values) {
+        this.caches.addAll(values);
     }
 
     public Set<T> all() {
