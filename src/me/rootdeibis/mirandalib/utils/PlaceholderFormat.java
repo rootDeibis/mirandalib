@@ -1,6 +1,36 @@
 package me.rootdeibis.mirandalib.utils;
 
+import java.util.HashMap;
+
 public class PlaceholderFormat {
+
+    private final HashMap<String, String> placeholders = new HashMap<>();
+
+
+    public PlaceholderFormat() {
+
+    }
+
+    public void register(String key, Object value) {
+        placeholders.put(key, String.valueOf(value));
+    }
+
+    public void remove(String key) {
+        placeholders.remove(key);
+    }
+
+    public String parse(String str) {
+        String parsedStr = str;
+
+
+        for(String key : placeholders.keySet()) {
+            parsedStr = parsedStr.replaceAll("<" + key + ">", placeholders.get(key));
+        }
+
+        return parsedStr;
+
+    }
+
 
 
     public static String parseParams(String message, Object... params) {
