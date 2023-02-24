@@ -117,6 +117,7 @@ public class GUIButton {
         if(displayName != null) meta.setDisplayName(ColorUtils.parse(displayName));
         if(lore != null) meta.setLore(ColorUtils.parse(lore));
 
+        itemStack.setItemMeta(meta);
 
         return itemStack;
 
