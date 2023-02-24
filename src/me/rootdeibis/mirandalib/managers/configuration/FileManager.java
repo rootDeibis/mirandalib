@@ -39,7 +39,7 @@ public class FileManager {
 
         Predicate<IFile> findPredication = (f) -> f.getFile().getName().equals(file.getName());
 
-        if (!cache.has(findPredication)) {
+        if (!file.exists() || !cache.has(findPredication)) {
 
             this.cache.add(this.loadFile(file));
 

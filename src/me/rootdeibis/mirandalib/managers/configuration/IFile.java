@@ -17,6 +17,8 @@ public class IFile extends YamlConfiguration {
     }
 
 
+
+
     public File getFile() {
         return file;
     }
@@ -27,8 +29,6 @@ public class IFile extends YamlConfiguration {
         try {
 
             this.load(this.file);
-
-
 
         }catch (Exception e) {
             e.printStackTrace();

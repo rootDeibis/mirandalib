@@ -19,8 +19,10 @@ public class GUIMenu implements InventoryHolder {
     private final Inventory inventory;
     private final Cache<GUIButton> buttons = new Cache<>();
 
+    private boolean editable = false;
+
     public GUIMenu(String title, int rowSize) {
-        this.inventory = Bukkit.createInventory(this, rowSize * 8, title);
+        this.inventory = Bukkit.createInventory(this, rowSize * 9, title);
     }
 
     @Override
@@ -38,12 +40,26 @@ public class GUIMenu implements InventoryHolder {
     }
 
     public void removeButton(Predicate<GUIButton> predication) {
+        GUIButton btn = this.buttons.find(predication);
+        
+
+        this.inventory.remove(btn.getItemStack());
+
         this.buttons.remove(predication);
     }
 
 
     public Cache<GUIButton> getButtons() {
         return buttons;
+    }
+
+
+    public void setEditable(boolean editable) {
+        this.editable = editable;
+    }
+
+    public boolean isEditable() {
+        return editable;
     }
     
     public void open(Player player) {
